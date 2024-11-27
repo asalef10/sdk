@@ -111,7 +111,7 @@ export const createEnhancedUserMessage = (
       2. If the question is related to DeFi options trading, analyze the following additional information and incorporate it into your response:
          - Current available positions: ${JSON.stringify(tradeboardData)}
          - Current time (Unix timestamp): ${unix}
-         - Current BTC price: ${assetPriceUSD}
+         - Current asset price: ${assetPriceUSD}
       3. If the question is not related to DeFi options trading, provide a response based only on the user's question.
       
       **About Grix App:**

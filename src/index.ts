@@ -32,20 +32,19 @@ export class GrixSDK {
 	}
 
 	// Get chatbot context, enhanced user message, and system instructions
-	async chatBotGetContext(userMessage: string, tradeboardOverride?: any) {
+	async chatBotGetContext(userMessage: string,assetPriceUSD:number, tradeboardOverride?: any) {
 		// Use the override if provided, otherwise fallback to imported tradeboard data
 		const tradeboard = tradeboardOverride || tradeboardData;
 
 		// Fetch chatbot context and asset price
 		const chatbotContext = await chatbotContextInitHandler();
 		const unix = Math.floor(Date.now() / 1000);
-		const btcAssetPrice = await this.fetchAssetPrice("bitcoin");
-
+ 
 		// Create enhanced user message
 		const enhancedUserMessage = createEnhancedUserMessage(
 			unix,
 			tradeboard,
-			btcAssetPrice,
+			assetPriceUSD,
 			userMessage
 		);
 
